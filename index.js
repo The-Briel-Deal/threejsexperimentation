@@ -14,13 +14,42 @@ const material = new THREE.MeshBasicMaterial({
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 camera.position.z = 5;
-// const myAxis = new THREE.Vector3(0, .5, .2);
+
+//Making a vector object to store the direction I'm facing so I can move forward
+let direction = new THREE.Vector3;
+//Variable for storing my current speed (sprinting)
+let speed = 1.0;
+let onDocumentKeyDown = (event) => {
+    // Getting world direction
+    camera.getWorldDirection(direction);
+
+
+
+    switch (event.which) {
+        case 87:
+            // W
+            camera.position.addScaledVector(direction, speed);
+            break;
+        case 32:
+            // S
+            break;
+        case 83:
+            // D
+            break;
+        case 65:
+            // A
+            break;
+        default:
+            break;
+    }
+}
+document.addEventListener("keydown", onDocumentKeyDown, false);
 
 function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    // cube.rotateOnWorldAxis(myAxis, .1);
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+    // camera.lookAt(cube.position)
 }
 animate();
