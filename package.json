@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/The-Briel-Deal/threejsexperimentation/issues"
   },
-  "homepage": "https://github.com/The-Briel-Deal/threejsexperimentation#readme"
+  "homepage": "https://github.com/The-Briel-Deal/threejsexperimentation#readme",
+  "dependencies": {
+    "serve": "^13.0.2",
+    "three": "^0.137.5"
+  }
 }
